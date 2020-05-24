@@ -1,0 +1,23 @@
+#errTitle, #errArtist, #errYear, #errGenre, #errLabel, #errPrice {
+    width: 100%;
+}
+
+#bouton {
+    margin-top: 4%;
+}
+
+footer {
+    padding-bottom: 5%;
+}
+
+body {
+    background: darkslategrey;
+}
+
+footer a {
+    color: #111;
+}
+
+footer a:hover {
+    color: #111;
+}
