@@ -2,7 +2,7 @@
 include_once "header.php";
 include_once '../controlers/detail_control.php';
 ?>
-    <div class="container">
+    <div class="container fluid">
         <div class="row justify-content-md-center pt-3">
             <form action="update_form.php" method="get">
                 <fieldset>
@@ -40,6 +40,7 @@ include_once '../controlers/detail_control.php';
             </form>
         </div>
     </div>
+    <!-- Modal pour confirmation de la supression -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
          aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">

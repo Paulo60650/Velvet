@@ -3,15 +3,17 @@ include_once "../models/m_cd.php";
 include_once "../models/m_artist.php";
 
 session_start();
+// Contrôle de la connexion , sinon impossible d'aller sur ajout
 
 if (!$_SESSION['isConnect']) {
     header('location:../index.php');
 }
-
+// Récupration des classes Disc et Artist pésentent dans mes models
 $disc = new Disc();
 $list = new Artist();
+// Appel de la méthode getList
 $artist = $list->getList();
-$message = '';
+// Déclarations de mon tableau d'erreur 
 $tabError = [];
 
 // REGEX
@@ -71,18 +73,20 @@ if (isset($_POST['envoie'])) {
         $finfo = finfo_open(FILEINFO_MIME_TYPE);
         $mimetype = finfo_file($finfo, $_FILES["picture"]["tmp_name"]);
         finfo_close($finfo);
-
+        // Test du MYME_TYPE
         if (!in_array($mimetype, $aMimeTypes)) {
             $tabError['picture'] = 'Le type de fichier n\'est pas pris en charge ! Veuillez recommencer';
         }
         if (!file_exists("../assets/img/" . $_FILES['picture']['name'])) {
             if (is_uploaded_file($_FILES['picture']['tmp_name'])) {
+                // Téléchargement du fichier
                 move_uploaded_file($_FILES['picture']['tmp_name'], __DIR__ . '/../../Velvet/assets/img/' . $_FILES["picture"]['name']);
             } else {
                 $tabError['picture'] = 'Problème lors du téléchargement de l\'image';
             }
         }
     }
+    // Contrôle du nombre d'erreur si egal à 0 on récupère les valeurs des inputs en les recontolant dans un tableaux
     if (count($tabError) == 0) {
         $array = [
             ':title' => filter_input(INPUT_POST, 'title', FILTER_SANITIZE_SPECIAL_CHARS),
@@ -93,6 +97,7 @@ if (isset($_POST['envoie'])) {
             ':price' => filter_input(INPUT_POST, 'price', FILTER_SANITIZE_SPECIAL_CHARS),
             ':picture' => $_FILES['picture']['name']
         ];
+        // Appel de la méthode setAddDisc
         $disc->setAddDisc($array);
         $message = 'Le Vinyle a bien été ajouté félicitations! Vous serez redirigé vers l\'accueil dans 3 secondes';
         header("refresh:3;url=../index.php");

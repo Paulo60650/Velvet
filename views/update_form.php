@@ -3,13 +3,16 @@ include_once "header.php";
 include_once "../controlers/update_control.php";
 if (isset($_POST['envoie'])) {
     ?>
+    <!-- Affichage du message de réussite de l'update -->
     <h4 class="list-group-item list-group-item-success text-center"><?= $message ?></h4>
 <?php } ?>
     <section class="row">
+    <!-- Début du Formulaire -->
         <form action="" method="POST" class="col-5" enctype="multipart/form-data">
             <fieldset>
                 <legend class="titre2">Modifier un Vinyle</legend>
                 <div class="form-row">
+                <!-- Champs Titre -->
                     <label for="title">Title</label>
                     <input type="text" id="title" class="form-control" name="title" value="<?= $detail->disc_title ?>">
                     <span <?php if (isset($tabError['title'])) {
@@ -17,6 +20,7 @@ if (isset($_POST['envoie'])) {
                     } ?> id="errTitle"><?= (isset($tabError['title'])) ? $tabError['title'] : '' ?></span>
                 </div>
                 <div>
+                <!-- Champs Artiste -->
                     <label>Artist</label>
                     <select class="form-control" id="artist" name="artist">
                         <option value="<?= $detail->artist_id ?>"><?= $detail->artist_name ?></option>
@@ -29,6 +33,7 @@ if (isset($_POST['envoie'])) {
                     } ?> id="errArtist"><?= (isset($tabError['artist'])) ? $tabError['artist'] : '' ?></span>
                 </div>
                 <div class="form-row">
+                <!-- Champs Année -->
                     <label for="year">Year</label>
                     <input id="year" type="text" class="form-control" name="year" value="<?= $detail->disc_year ?>">
                     <span <?php if (isset($tabError['year'])) {
@@ -36,6 +41,7 @@ if (isset($_POST['envoie'])) {
                     } ?>id="errYear"><?= (isset($tabError['year'])) ? $tabError['year'] : '' ?></span>
                 </div>
                 <div class="form-row">
+                <!-- Champs Genre -->
                     <label for="genre">Genre</label>
                     <input id="genre" type="text" class="form-control" name="genre" value="<?= $detail->disc_genre ?>">
                     <span <?php if (isset($tabError['genre'])) {
@@ -43,6 +49,7 @@ if (isset($_POST['envoie'])) {
                     } ?> id="errGenre"><?= (isset($tabError['genre'])) ? $tabError['genre'] : '' ?></span>
                 </div>
                 <div class="form-row">
+                <!-- Champs Label -->
                     <label for="label">Label</label>
                     <input id="label" type="text" class="form-control" name="label" value="<?= $detail->disc_label ?>">
                     <span <?php if (isset($tabError['label'])) {
@@ -50,6 +57,7 @@ if (isset($_POST['envoie'])) {
                     } ?> id="errLabel"><?= (isset($tabError['label'])) ? $tabError['label'] : '' ?></span>
                 </div>
                 <div class="form-row">
+                <!-- Champs Prix -->
                     <label for="mail">Price</label>
                     <input id="price" type="text" class="form-control" name="price" value="<?= $detail->disc_price ?>">
                     <span <?php if (isset($tabError['price'])) {
@@ -57,6 +65,8 @@ if (isset($_POST['envoie'])) {
                     } ?>  id="errPrice"><?= (isset($tabError['price'])) ? $tabError['price'] : '' ?></span>
                 </div>
                 <div class="form-row">
+                                <!-- Champs pour téléchargement de l'image -->
+
                     <label for="image">Picture</label>
                     <input type="file" class="custom-file" name="newPicture" id="file">
                     <span <?php if (isset($tabError['picture'])) {
@@ -70,6 +80,7 @@ if (isset($_POST['envoie'])) {
                     <input class="btn btn-primary" type="reset" value="Annuler">
                 </div>
             </fieldset>
+            <!-- Fin du Formulaire -->
         </form>
     </section>
 <?php

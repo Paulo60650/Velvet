@@ -6,7 +6,6 @@ session_start();
 $disc = new Disc();
 $list = new Artist();
 $tabError = [];
-$message = '';
 
 // REGEX
 $filtreText = '/(^[\wéèêëûüîïôàçæœ\(\)\&\s\-\.\,\_\+\=\/\%€@\'\"\*\\`\!\?\;\[\]]*$)/i';
@@ -51,6 +50,7 @@ if (isset($_POST['envoie'])) {
     if (empty($_POST['artist'])) {
         $tabError['artist'] = 'Renseignez ce champs';
     }
+
     if (count($tabError) == 0) {
         $array = [
             ':title' => filter_input(INPUT_POST, 'title', FILTER_SANITIZE_SPECIAL_CHARS),
@@ -73,12 +73,13 @@ if (isset($_POST['envoie'])) {
             $finfo = finfo_open(FILEINFO_MIME_TYPE);
             $mimetype = finfo_file($finfo, $_FILES["newPicture"]["tmp_name"]);
             finfo_close($finfo);
-
+            // Test du MYME_TYPE
             if (!in_array($mimetype, $aMimeTypes)) {
                 $tabError['picture'] = 'Le type de fichier n\'est pas pris en charge';
             }
             if (!file_exists("../assets/img/" . $_FILES['newPicture']['name'])) {
                 if (is_uploaded_file($_FILES['newPicture']['tmp_name'])) {
+                    // Téléchargement du fichier
                     move_uploaded_file($_FILES['newPicture']['tmp_name'], __DIR__ . '/../../Velvet/assets/img/' . $_FILES["newPicture"]['name']);
                 }
             }
@@ -90,6 +91,8 @@ if (isset($_POST['envoie'])) {
         }
     }
 }
+// Récupération de l'id via la méthode get
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT) ?: $array[':id'];
+// Appel des méthodes getDetail et getList
 $detail = $disc->getDetail($id);
 $artist = $list->getList();

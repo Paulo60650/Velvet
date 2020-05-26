@@ -12,7 +12,9 @@
   <component name="ChangeListManager">
     <list default="true" id="fb2524af-8289-4cf2-bbdc-1c705f145e78" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controlers/add_control.php" beforeDir="false" afterPath="$PROJECT_DIR$/controlers/add_control.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controlers/update_control.php" beforeDir="false" afterPath="$PROJECT_DIR$/controlers/update_control.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/detail.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/detail.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +59,8 @@
       <option name="presentableId" value="Default" />
       <updated>1590275370137</updated>
       <workItem from="1590275376964" duration="6163000" />
+      <workItem from="1590281661281" duration="2118000" />
+      <workItem from="1590294253000" duration="110000" />
     </task>
     <servers />
   </component>
@@ -77,5 +81,11 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="492" y="298" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1590281697830">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="492" y="298" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.768@0.0.1366.768" timestamp="1590281697830" />
   </component>
 </project>

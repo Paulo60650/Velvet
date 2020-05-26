@@ -3,10 +3,12 @@ include_once "header.php";
 include_once '../controlers/artist_control.php';
 if ($count == 0){
 ?>
+<!-- Affichage si pas de Vinile présent de l'artiste  -->
 <div class="mt-5 text-center">
     <h3>Il n'y a aucun Vinyle disponible actuellement de cette artiste</h3>
 </div>
 <?php } else{?>
+<!-- Affichage du nombre de Vinyle de l'artiste -->
 <div class=" mt-5 text-center">
     <h3>Il y a <?= $count ?> Vinyle de <?= $tab[0]->artist_name ?> disponible actuellement </h3>
 </div>
@@ -21,9 +23,10 @@ if ($count == 0){
             <?php } ?>
 
             <?php
-            // Foreach pour récupérer les données du tableau et les afficher dans le Formulaire
+            // Foreach pour afficher les données du tableau dans le Formulaire
             foreach ($tab as $row) {
                 ?>
+                <!-- Début du formulaire -->
                 <form action="./detail.php" method="get">
                     <fieldset>
                         <div class="card text-center text-white bg-dark mb-3 ml-3" style="width: 18rem;">
@@ -55,6 +58,7 @@ if ($count == 0){
                         </div>
                     </fieldset>
                 </form>
+                <!-- Fin du Formulaire -->
             <?php } ?>
         </div>
     </div>

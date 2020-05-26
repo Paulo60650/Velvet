@@ -1,15 +1,18 @@
 <?php
 include_once "header.php";
 include_once "../controlers/add_control.php";
+// Affichage du message en cas de réussite de l'ajout
 if (isset($_POST['envoie']) && count($tabError) == 0) {
     ?>
     <h4 class="list-group-item list-group-item-success text-center"><?= $message ?></h4>
 <?php } ?>
     <section class="row">
+    <!-- Début du Formulaire d'ajout -->
         <form action="" method="POST" class="col-5" enctype="multipart/form-data">
             <fieldset>
                 <legend class="titre2">Ajouter un Vinyle</legend>
                 <div class="form-row">
+                <!-- Champs Titre -->
                     <label for="title">Title</label>
                     <input type="text" id="title" class="form-control" name="title" placeholder="Fugazi"
                            value="<?php if (isset($_POST['title'])) {
@@ -20,6 +23,7 @@ if (isset($_POST['envoie']) && count($tabError) == 0) {
                     } ?> id="errTitle"><?= (isset($tabError['title'])) ? $tabError['title'] : '' ?></span>
                 </div>
                 <div>
+                <!-- Champs artiste -->
                     <label>Artist</label>
                     <select class="form-control" id="artist" name="artist">
                         <?php if (isset($_POST['artist'])) { ?>
@@ -39,6 +43,7 @@ if (isset($_POST['envoie']) && count($tabError) == 0) {
                     } ?> id="errArtist"><?= (isset($tabError['artist'])) ? $tabError['artist'] : '' ?></span>
                 </div>
                 <div class="form-row">
+                <!-- Champs de l'année -->
                     <label for="year">Year</label>
                     <input id="year" type="text" class="form-control" name="year" placeholder="1984"
                            value="<?php if (isset($_POST['year'])) {
@@ -49,6 +54,7 @@ if (isset($_POST['envoie']) && count($tabError) == 0) {
                     } ?> id="errYear"><?= (isset($tabError['year'])) ? $tabError['year'] : '' ?></span>
                 </div>
                 <div class="form-row">
+                <!-- Champs Genre -->
                     <label for="genre">Genre</label>
                     <input id="genre" type="text" class="form-control" name="genre" placeholder="Prog"
                            value="<?php if (isset($_POST['year'])) {
@@ -59,6 +65,7 @@ if (isset($_POST['envoie']) && count($tabError) == 0) {
                     } ?> id="errGenre"><?= (isset($tabError['genre'])) ? $tabError['genre'] : '' ?></span>
                 </div>
                 <div class="form-row">
+                <!-- Champs Label -->
                     <label for="label">Label</label>
                     <input id="label" type="text" class="form-control" name="label" placeholder="EMI"
                            value="<?php if (isset($_POST['label'])) {
@@ -69,6 +76,7 @@ if (isset($_POST['envoie']) && count($tabError) == 0) {
                     } ?> id="errLabel"><?= (isset($tabError['label'])) ? $tabError['label'] : '' ?></span>
                 </div>
                 <div class="form-row">
+                <!-- Champs Prix -->
                     <label for="mail">Price</label>
                     <input id="price" type="text" class="form-control" name="price" placeholder="14.99"
                            value="<?php if (isset($_POST['price'])) {
@@ -79,6 +87,7 @@ if (isset($_POST['envoie']) && count($tabError) == 0) {
                     } ?> id="errPrice"><?= (isset($tabError['price'])) ? $tabError['price'] : '' ?></span>
                 </div>
                 <div class="form-row">
+                <!-- Champs pour téléchargement de l'image -->
                     <label for="image">Picture</label>
                     <input type="file" class="form-control-file" name="picture" id="picture">
                     <span <?php if (isset($tabError['picture'])) {
@@ -92,6 +101,7 @@ if (isset($_POST['envoie']) && count($tabError) == 0) {
                 </div>
             </fieldset>
         </form>
+        <!-- Fin du Formulaire -->
     </section>
 <?php
 include_once "footer.php"
