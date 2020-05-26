@@ -98,8 +98,14 @@ if (isset($_POST['envoie'])) {
             ':picture' => $_FILES['picture']['name']
         ];
         // Appel de la méthode setAddDisc
-        $disc->setAddDisc($array);
-        $message = 'Le Vinyle a bien été ajouté félicitations! Vous serez redirigé vers l\'accueil dans 3 secondes';
-        header("refresh:3;url=../index.php");
+        if($disc->setAddDisc($array) == NULL){
+            $class = 'list-group-item list-group-item-success text-center';
+            $message = 'Le Vinyle a bien été ajouté félicitations! Vous serez redirigé vers l\'accueil dans 3 secondes';
+            header("refresh:3;url=../index.php");
+        }else{
+            $class = 'list-group-item list-group-item-danger text-center';
+            $message = 'Le Vinyle n\'a pas pu être ajouté ! Vous serez redirigé vers l\'accueil dans 3 secondes';
+            header("refresh:3;url=../index.php");
+        }
     }
 }

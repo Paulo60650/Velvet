@@ -85,9 +85,16 @@ if (isset($_POST['envoie'])) {
             }
         }
         if (empty($tabError['picture'])) {
-            $disc->setDisc($array);
-            $message = 'Le Vinyle à bien été mofifié ! Vous allez être redirigé vers l\'Accueil dans 3 secondes';
-            header("refresh:3;url=../index.php");
+            // Appel et contrôle et de l'update
+            if($disc->setDisc($array) == NULL){
+                $class ='list-group-item list-group-item-success text-center';
+                $message = 'Le Vinyle à bien été mofifié ! Vous allez être redirigé vers l\'Accueil dans 3 secondes';
+                header("refresh:3;url=../index.php");
+            }else{
+                $class = 'list-group-item list-group-item-danger text-center';
+                $message = 'Le Vinyle n\'a pas pu être mofifié ! Vous allez être redirigé vers l\'Accueil dans 3 secondes';
+                header("refresh:3;url=../index.php");
+            }
         }
     }
 }

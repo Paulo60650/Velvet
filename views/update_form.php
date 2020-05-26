@@ -4,7 +4,7 @@ include_once "../controlers/update_control.php";
 if (isset($_POST['envoie'])) {
     ?>
     <!-- Affichage du message de réussite de l'update -->
-    <h4 class="list-group-item list-group-item-success text-center"><?= $message ?></h4>
+    <h4 class="<?= $class ?>"><?= $message ?></h4>
 <?php } ?>
     <section class="row">
     <!-- Début du Formulaire -->

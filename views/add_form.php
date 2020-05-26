@@ -4,7 +4,7 @@ include_once "../controlers/add_control.php";
 // Affichage du message en cas de réussite de l'ajout
 if (isset($_POST['envoie']) && count($tabError) == 0) {
     ?>
-    <h4 class="list-group-item list-group-item-success text-center"><?= $message ?></h4>
+    <h4 class="<?= $class ?>"><?= $message ?></h4>
 <?php } ?>
     <section class="row">
     <!-- Début du Formulaire d'ajout -->
