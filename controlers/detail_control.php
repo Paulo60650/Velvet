@@ -1,6 +1,7 @@
 <?php
 include_once '../models/m_cd.php';
 include_once '../models/m_artist.php';
+session_start();
 // Récupration des classes Disc et Artist pésentent dans mes models
 $disc = new Disc();
 $list = new Artist();

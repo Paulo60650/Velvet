@@ -30,9 +30,8 @@ if ($count == 0){
                 <form action="./detail.php" method="get">
                     <fieldset>
                         <div class="card text-center text-white bg-dark mb-3 ml-3" style="width: 18rem;">
-                            <img class="card-img-top" id='img' alt="Pochette"
-                                 src="../assets/img/<?= $row->disc_picture ?>"
-                                 alt="Cover image" width="300" height="270">
+                        <a href="detail.php?id=<?= $row->disc_id ?>"><img class="card-img-top" id='img' name='img' src="../assets/img/<?= $row->disc_picture ?>"
+                                 alt="Cover image" width="300" height="270"></a>
                             <div class="card-body">
                                 <ul class="list-unstyled">
                                     <li><p class="card-text" name="title"><strong>Title

@@ -18,7 +18,7 @@ include_once 'controlers/index_control.php';
 <!-- Début du Header -->
 <header class="row">
 <!-- Début de la navbar -->
-    <nav class="navbar navbar-expand navbar-dark fixed-top bg-dark col-12 mb-5">
+    <nav class="navbar navbar-expand navbar-dark fixed-top bg-dark col-12 mb-5" >
         <a class="navbar-brand" href="#">Accueil</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,15 +48,14 @@ include_once 'controlers/index_control.php';
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                 <!-- Bouton pour connexion -->
-                    <form action="./controlers/login_control.php" method="post" >
+                    <form action="./controlers/user_connexion_control.php" method="post" >
+                    <a href="views/user_registration.php"><button type="button" class="btn btn-primary">S'inscrire</button></a>
                         <?php if ($_SESSION['isConnect']) { ?>
                             <button type="submit" class="btn btn-primary" name="disconnect">
-                                Logout
+                                Deconnexion
                             </button>
                         <?php } else { ?>
-                            <button type="submit" class="btn btn-primary" name="connect">
-                                Login
-                            </button>
+                            <a href="./views/user_connexion.php"><button type="button" class="btn btn-primary">Connexion</button></a>
                         <?php } ?>
                     </form>
                 </li>
@@ -65,12 +64,12 @@ include_once 'controlers/index_control.php';
     </nav>
     <!-- Fin de la navbar -->
     <div class="mt-5 col-12">
-        <h1 class="text-center mt-4">Velvet Record</h1>
+        <h1 class="text-center mt-4">Velvet-Record</h1>
     </div>
     <!-- Fin du Header -->
 </header>
 <div class=" mt-5">
-    <h3 class="text-center">Il y a <?= $count ?> Vinyle disponible actuellement</h3>
+    <h3 class="text-center">Il y a <?= $count ?> Vinyles disponibles actuellement</h3>
 </div>
 <div class="col-12 ">
     <div class="row ml-5 pt-5">
@@ -82,8 +81,8 @@ include_once 'controlers/index_control.php';
 
                 <fieldset>
                     <div class="card text-center text-white bg-dark mb-3 ml-3" style="width: 18rem;">
-                        <img class="card-img-top" id='img' name='img' src="assets/img/<?= $line->disc_picture ?>"
-                             alt="Cover image" width="300" height="270">
+                        <a href="views/detail.php?id=<?= $line->disc_id ?>"><img class="card-img-top" id='img' name='img' src="assets/img/<?= $line->disc_picture ?>"
+                             alt="Cover image" width="300" height="270"></a>
                         <div class="card-body">
                             <ul class="list-unstyled">
                                 <li><p class="card-text" name="title"><strong>Title

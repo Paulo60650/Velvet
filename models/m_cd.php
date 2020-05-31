@@ -23,7 +23,7 @@ class Disc
 
     public function getNumber(): object
     {
-        $requete = $this->co->prepare('SELECT COUNT(disc_id) AS `numberCd` FROM disc');
+        $requete = $this->co->prepare('SELECT COUNT(disc_id) FROM disc');
         $requete->execute();
         $count = $requete->fetch(PDO::FETCH_OBJ);
         $requete->closeCursor();

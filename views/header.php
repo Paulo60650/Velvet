@@ -37,9 +37,24 @@ include_once '../controlers/header-control.php';
                     </div>
                 </li>
             </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                <!-- Bouton pour connexion -->
+                    <form action="../controlers/user_connexion_control.php" method="post" >
+                    <a href="user_registration.php"><button type="button" class="btn btn-primary">S'inscrire</button></a>
+                        <?php if($_SESSION['isConnect'] == true) { ?>
+                            <button type="submit" class="btn btn-primary" name="disconnect">
+                                Deconnexion
+                            </button>
+                        <?php } else{ ?>
+                            <a href="user_connexion.php"><button type="button" class="btn btn-primary">Connexion</button></a>
+                        <?php } ?>
+                    </form>
+                </li>
+            </ul>
         </div>
     </nav>
     <div class="mt-5 col-12">
-        <h1 class="text-center mt-4">Velvet Record</h1>
+        <h1 class="text-center mt-4">Velvet-Record</h1>
     </div>
 </header>

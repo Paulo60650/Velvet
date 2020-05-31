@@ -31,9 +31,8 @@ include_once '../controlers/detail_control.php';
                             </ul>
                             <input type="hidden" name="id" value="<?= $tab->disc_id ?>">
                             <input type="hidden" name="id_art" value="<?= $tab->artist_id ?>">
-                            <input type="submit" name="mofifier" class="btn btn-primary" value="Modifier">
-                            <input type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
-                                   value="Supprimer">
+                            <input <?php if ($_SESSION['isConnect']) {echo 'type="submit"';} else{echo'type="button"';}?> name="mofifier" class="btn btn-primary" value="Modifier">
+                            <input type="button" class="btn btn-primary" data-toggle="modal" <?php if ($_SESSION['isConnect']) {echo 'data-target="#exampleModal""';}?> value="Supprimer">
                         </div>
                     </div>
                 </fieldset>

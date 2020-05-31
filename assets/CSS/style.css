@@ -1,4 +1,4 @@
-#errTitle, #errArtist, #errYear, #errGenre, #errLabel, #errPrice {
+#errTitle, #errArtist, #errYear, #errGenre, #errLabel, #errPrice, #errMail, #errPassword {
     width: 100%;
 }
 
